@@ -1,6 +1,7 @@
 ﻿namespace GSM
 {
     using System;
+
     public class Battery
     {
         private string batteryModel;

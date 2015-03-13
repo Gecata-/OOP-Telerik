@@ -1,18 +1,22 @@
-﻿// Problem 7. GSM test
-
-// Write a class GSMTest to test the GSM class:
-// Create an array of few instances of the GSM class.
-// Display the information about the GSMs in the array.
-// Display the information about the static property IPhone4S.
-
+﻿
 namespace GSM
 {
-    using System;
-
     public class GSMTest
     {
-        GSM[] testPhones = new GSM[5];
-       
+        private static GSM[] testPhones = new GSM[4]
+        {
+            new GSM("A6","Siemens",15,"Kosta",new Battery("Akai"),new Display(3.2,2)),
+            new GSM("3210","Nokia",5,"Orhan",new Battery("Nokia",360,48.3,BatteryType.NiCd),new Display(2.7,2)),
+            new GSM("3GS","Apple",15,"Todor",new Battery("Apple"),new Display(4.2,16000000)),
+            new GSM("Vertu","Ferrary")
+        };
 
+        public static GSM[] TestGSM 
+        {
+            get
+            {
+                return testPhones;
+            }
+        }
     }
 }

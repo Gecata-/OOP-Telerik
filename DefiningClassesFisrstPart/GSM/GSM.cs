@@ -1,6 +1,8 @@
-﻿namespace GSM
+﻿
+namespace GSM
 {
     using System;
+    using System.Collections.Generic;
 
     public class GSM
     {
@@ -11,8 +13,7 @@
         private Battery battery;
         private Display display;
         private static GSM iPhone4S;
-
-  
+        private readonly List<Call> callHistory;
 
         public GSM(string model, string manufacturer)
         {
@@ -20,6 +21,8 @@
             this.phoneManufacturer = manufacturer;
             this.phonePrice = null;
             this.phoneOwner = null;
+            this.battery = null;
+            this.display = null;
         }
 
         public GSM(string model, string manufacturer, double price, string owner, Battery battery, Display display)
@@ -30,6 +33,17 @@
             this.phoneOwner = owner;
             this.battery = battery;
             this.display = display;
+        }
+
+        public GSM(string model, string manufacturer, double price, string owner, Battery battery, Display display, List<Call> someCallHistory)
+        {
+            this.phoneModel = model;
+            this.phoneManufacturer = manufacturer;
+            this.phonePrice = price;
+            this.phoneOwner = owner;
+            this.battery = battery;
+            this.display = display;
+            this.callHistory = someCallHistory;
         }
 
         static GSM()
@@ -44,6 +58,14 @@
             get
             {
                 return iPhone4S;
+            }
+        }
+
+        public List<Call> CallHistory
+        {
+            get
+            {
+                return callHistory;
             }
         }
 
@@ -143,20 +165,71 @@
         {
             string model = this.phoneModel;
             string manufacturer = this.phoneManufacturer;
-            string price = this.phonePrice.ToString();
-            string owner = this.phoneOwner;
-            string batteryType = this.battery.Type;
-            string idleHours = this.battery.IdleHours.ToString();
-            string batteryModel = this.battery.Model;
-            string batteryTalkTime = this.battery.TalkHours.ToString();
-            string displaySize = this.display.Size.ToString();
-            string colorsNumber = this.display.NumberOFColors.ToString();
 
-            return "Model: " + model + "\nManufacturer: " + manufacturer + "\nPrice: " + price +
-                "\nOwner: " + owner + "\nBattery type: " + batteryType + "\nBattery idle hours: " + idleHours + "\nBattery model: " + batteryModel +
-                "\nBattery talk time: " + batteryTalkTime + "\nDisplay size: " + displaySize + "\nDisplay number of colors: " + colorsNumber;
 
+            if (battery != null && display != null)
+            {
+                string price = this.phonePrice.ToString();
+                string owner = this.phoneOwner;
+                string batteryType = this.battery.Type;
+                string idleHours = this.battery.IdleHours.ToString();
+                string batteryModel = this.battery.Model;
+                string batteryTalkTime = this.battery.TalkHours.ToString();
+                string displaySize = this.display.Size.ToString();
+                string colorsNumber = this.display.NumberOFColors.ToString();
+
+                return "Model: " + model + "\nManufacturer: " + manufacturer + "\nPrice: " + price +
+               "\nOwner: " + owner + "\nBattery type: " + batteryType + "\nBattery idle hours: " + idleHours + "\nBattery model: " + batteryModel +
+               "\nBattery talk time: " + batteryTalkTime + "\nDisplay size: " + displaySize + "\nDisplay number of colors: " + colorsNumber;
+
+            }
+            else
+            {
+                string price = "Not Signed";
+                string owner = "Not Signed";
+                string batteryType = "Not Signed";
+                string idleHours = "Not Signed";
+                string batteryModel = "Not Signed";
+                string batteryTalkTime = "Not Signed";
+                string displaySize = "Not Signed";
+                string colorsNumber = "Not Signed";
+
+                return "Model: " + model + "\nManufacturer: " + manufacturer + "\nPrice: " + price +
+               "\nOwner: " + owner + "\nBattery type: " + batteryType + "\nBattery idle hours: " + idleHours + "\nBattery model: " + batteryModel +
+               "\nBattery talk time: " + batteryTalkTime + "\nDisplay size: " + displaySize + "\nDisplay number of colors: " + colorsNumber;
+
+            }
         }
 
+        public void AddCallToHistory(Call someCall)
+        {
+            callHistory.Add(someCall);
+        }
+
+        public void RemoveCallFromHistory(List<Call> phoneCallHistory, int index)
+        {
+            phoneCallHistory.RemoveAt(index);
+        }
+
+        public void ClearHistory(List<Call> phoneCallHistory)
+        {
+                phoneCallHistory.Clear();           
+        }
+
+        public decimal CallPrice(decimal pricePerMinute)
+        {
+            decimal durationInSeconds = 0m;
+            decimal durationInMInutes = 0m;
+            decimal callPrice = 0m;
+            List<Call> phoneCallHistory = this.callHistory;
+            for (int i = 0; i < phoneCallHistory.Count; i++)
+            {
+                durationInSeconds += phoneCallHistory[0].Duration;
+            }
+            durationInMInutes = durationInSeconds / 60;
+            callPrice = durationInMInutes * pricePerMinute;
+            return callPrice;
+        }
     }
 }
+
