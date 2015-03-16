@@ -7,7 +7,7 @@
 
 //Add a private static read-only field to hold the start of the coordinate system – the point O{0, 0, 0}.
 //Add a static property to return the point O.
-namespace PointIn3DCoordinate
+namespace DefiningClassesSecondPart.PointIn3DCoordinate
 {
     public struct Point3D
     {

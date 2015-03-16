@@ -1,7 +1,7 @@
 ﻿//Problem 3. Static class
 
 //  Write a static class with a static method to calculate the distance between two points in the 3D space.
-namespace PointIn3DCoordinate
+namespace DefiningClassesSecondPart.PointIn3DCoordinate
 {
     using System;
 

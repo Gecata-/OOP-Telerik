@@ -1,6 +1,6 @@
 ﻿//Create a static class PathStorage with static methods to save and load paths from a text file.
 //Use a file format of your choice.
-namespace PointIn3DCoordinate
+namespace DefiningClassesSecondPart.PointIn3DCoordinate
 {
     using System.IO;
 

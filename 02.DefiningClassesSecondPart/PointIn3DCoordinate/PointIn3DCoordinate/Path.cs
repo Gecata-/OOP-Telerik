@@ -1,19 +1,19 @@
 ﻿//Problem 4. Path
 
 //Create a class Path to hold a sequence of points in the 3D space.
-namespace PointIn3DCoordinate
+namespace DefiningClassesSecondPart.PointIn3DCoordinate
 {
     using System;
 
     public class Path<T>
     {
-        private const int defaultCapacity = 4;
+        private const int DEFAULT_CAPACITY = 4;
         private T[] points3D;
         private int count = 0;
-        private int capacity = defaultCapacity;
+        private int capacity = DEFAULT_CAPACITY;
 
         public Path()
-            : this(defaultCapacity)
+            : this(DEFAULT_CAPACITY)
         {
         }
 
@@ -82,7 +82,7 @@ namespace PointIn3DCoordinate
                     throw new IndexOutOfRangeException();
                 }
 
-                points3D[index] = value;
+                this.points3D[index] = value;
             }
         }
     }

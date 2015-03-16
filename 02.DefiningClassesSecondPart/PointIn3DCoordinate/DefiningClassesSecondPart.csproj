@@ -46,7 +46,7 @@
     <Compile Include="PointIn3DCoordinate\Path.cs" />
     <Compile Include="PointIn3DCoordinate\PathStorage.cs" />
     <Compile Include="PointIn3DCoordinate\Point3D.cs" />
-    <Compile Include="PointIn3DCoordinate\PointIn3DCoordinateTest.cs" />
+    <Compile Include="DefiningClassesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
