@@ -42,12 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenericClass\GenericListT.cs" />
+    <Compile Include="Matrix\Matrix.cs" />
     <Compile Include="PointIn3DCoordinate\DistanceBetweenTwo3DPoints.cs" />
     <Compile Include="PointIn3DCoordinate\Path.cs" />
     <Compile Include="PointIn3DCoordinate\PathStorage.cs" />
     <Compile Include="PointIn3DCoordinate\Point3D.cs" />
     <Compile Include="DefiningClassesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VersionAttribute\VersionAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
