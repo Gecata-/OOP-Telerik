@@ -6,27 +6,48 @@
 
 namespace StudentGroups.MyStudent
 {
+    using StudentGroups.MyGroup;
+
     using System.Collections.Generic;
 
     public class Student
     {
         private readonly string firstName;
         private readonly string lastName;
-        private readonly int facultetNumber;
+        private readonly string facultetNumber;
         private string telephonNumber;
         private string email;
         private List<double> marks;
-        private int groupNumber;
+        private Group studentGroup;
 
-        public Student(string someFirstName, string someLastdName, int someFacultetNumber,
-            string someTelephoneNumber, string someEmail, int someGroupNumber)
+        public readonly Group Mathematics = new Group(2, "Mathematics");
+        public readonly Group Biology = new Group(3, "Biology");
+        public readonly Group Chemistry = new Group(5, "Chemistry");
+
+        public Student(string someFirstName, string someLastdName, string someFacultetNumber,
+            string someTelephoneNumber, string someEmail, List<double> someMarks, int someGroupNumber)
         {
             this.firstName = someFirstName;
             this.lastName = someLastdName;
             this.facultetNumber = someFacultetNumber;
             this.telephonNumber = someTelephoneNumber;
             this.email = someEmail;
-            this.groupNumber = someGroupNumber;
+            this.marks = someMarks;     
+
+            if (someGroupNumber == 2)
+            {
+                this.studentGroup = Mathematics;
+            }
+
+            if (someGroupNumber == 3)
+            {
+                this.studentGroup = Biology;
+            }
+
+            if (someGroupNumber == 5)
+            {
+                this.studentGroup = Chemistry;
+            }
         }
 
         public string FirstName
@@ -45,9 +66,9 @@ namespace StudentGroups.MyStudent
             }
         }
 
-        public int FN
+        public string FN
         {
-            get 
+            get
             {
                 return this.facultetNumber;
             }
@@ -85,7 +106,7 @@ namespace StudentGroups.MyStudent
             }
             set
             {
-               this.marks.Add((dynamic)value);
+                this.marks.Add((dynamic)value);
             }
         }
 
@@ -93,12 +114,29 @@ namespace StudentGroups.MyStudent
         {
             get
             {
-                return this.groupNumber;
+                return this.studentGroup.GroupNumber;
             }
             set
             {
-                this.groupNumber = value;
+                this.studentGroup.GroupNumber = value;
             }
+        }
+
+        public string DepartmentName
+        {
+            get
+            {
+                return this.studentGroup.DepartmentName;
+            }
+        }
+
+        public override string ToString()
+        {
+            return string.Format("First Name: {0} \nLast Name: {1} \nFacultet Number: {2} \nTelephon Number: {3} \nEmail: {4} \nMarks: {5} \nGroup Number: {6} \nDepartment Name: {7}\n"
+                , this.firstName, this.lastName, 
+                this.facultetNumber, this.telephonNumber,
+                this.email, string.Join(" ,", marks), 
+                this.studentGroup.GroupNumber, this.studentGroup.DepartmentName);
         }
     }
 }

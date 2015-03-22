@@ -48,7 +48,7 @@ namespace StudentGroups.Extensions
             for (int i = 0; i < someStudents.Count; i++)
             {
                 var student = someStudents[i];
-
+                z = 0;
                 for (int j = 0; j < student.Marks.Count; j++)
                 {                   
                     if (student.Marks[j] == 2)
@@ -64,6 +64,15 @@ namespace StudentGroups.Extensions
                 
             }
             return result;
+        }
+
+        public static dynamic GroupByGroupName(this List<Student> someStudents)
+        {
+            var studentsByGroupNumber = someStudents
+                .GroupBy(st => st.GroupNumber)
+                .ToList();
+
+            return studentsByGroupNumber;
         }
     }
 }
