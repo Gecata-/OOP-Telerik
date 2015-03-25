@@ -9,3 +9,6 @@ Object Oriented Programming
 
 3. Extension-Methods-Delegates-Lambda-LINQ     -    [[Instructions]]
 (https://github.com/TelerikAcademy/Object-Oriented-Programming/blob/master/03.%20Extension-Methods-Delegates-Lambda-LINQ/README.md) 
+
+4. OOP Principles - Part 1     -    [[Instructions]]
+(https://github.com/TelerikAcademy/Object-Oriented-Programming/blob/master/04.%20OOP%20Principles%20-%20Part%201/README.md)
