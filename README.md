@@ -12,3 +12,6 @@ Object Oriented Programming
 
 4. OOP Principles - Part 1     -    [[Instructions]]
 (https://github.com/TelerikAcademy/Object-Oriented-Programming/blob/master/04.%20OOP%20Principles%20-%20Part%201/README.md)
+
+5. OOP Principles - Part 2     -    [[Instructions]]
+(https://github.com/TelerikAcademy/Object-Oriented-Programming/blob/master/05.%20OOP%20Principles%20-%20Part%202/README.md)
