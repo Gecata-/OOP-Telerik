@@ -15,3 +15,6 @@ Object Oriented Programming
 
 5. OOP Principles - Part 2     -    [[Instructions]]
 (https://github.com/TelerikAcademy/Object-Oriented-Programming/blob/master/05.%20OOP%20Principles%20-%20Part%202/README.md)
+
+6. Common Type System     -    [[Instructions]]
+(https://github.com/TelerikAcademy/Object-Oriented-Programming/blob/master/06.%20Common%20Type%20System/README.md)
